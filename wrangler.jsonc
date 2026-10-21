@@ -8,7 +8,7 @@
     {
       "binding": "DB",
       "database_name": "turftrack-records",
-      "database_id": "00000000-0000-4000-8000-000000000000",
+      "database_id": "7138264a-16e0-47cb-bcb2-f5aaeb287bf9",
       "migrations_dir": "drizzle"
     }
   ],
