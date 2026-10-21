@@ -10,9 +10,9 @@ This repository contains application source and an empty database schema only. C
 
 1. In **Cloudflare > Storage & databases > D1**, create a database named `turftrack-records`.
 2. Copy its database ID into `wrangler.jsonc`, replacing the all-zero placeholder.
-3. In the D1 console, apply `drizzle/0000_turftrack_schema.sql` once.
-4. In **Workers & Pages**, create a Worker from this GitHub repository. Keep the Worker name `turftrack-records` so it matches `wrangler.jsonc`.
-5. Use `npm run build` as the build command and `npx wrangler deploy` as the deploy command.
+3. In **Workers & Pages**, create a Worker from this GitHub repository. Keep the Worker name `turftrack-records` so it matches `wrangler.jsonc`.
+4. Use `npm run build` as the build command.
+5. Use `npx wrangler d1 migrations apply turftrack-records --remote && npx wrangler deploy` as the deploy command. The first deployment creates the empty TurfTrack tables; later deployments apply only pending migrations.
 6. Confirm the Worker has a D1 binding named `DB` pointing to `turftrack-records`.
 7. Open the Worker's **Access** tab, choose **Protect this Worker behind Access**, select **All traffic**, and allow only the office and field employee email addresses.
 8. The first allowed employee who opens an empty TurfTrack database becomes the administrator. Sign in as Christopher first.
