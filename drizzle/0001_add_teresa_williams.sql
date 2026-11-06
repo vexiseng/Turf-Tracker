@@ -56,10 +56,13 @@ WHERE "preset_id" = 'seed-adjusted-2026-r5-009'
 
 INSERT OR IGNORE INTO "route_preset_stops" (
   "id", "preset_id", "client_id", "stop_order", "created_at"
-) VALUES (
+) SELECT
   'teresa-williams-2026-r5-route-stop',
   'seed-adjusted-2026-r5-009',
   'teresa-williams-971-crescent-dr',
   7,
   '2026-11-06T18:00:00.000Z'
+WHERE EXISTS (
+  SELECT 1 FROM "route_presets"
+  WHERE "id" = 'seed-adjusted-2026-r5-009'
 );
